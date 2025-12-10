@@ -1,0 +1,235 @@
+{
+  "disciplinas": [
+    {
+      "id": "4fd7dbe8-0043-401b-b54d-cda14f3e7f30",
+      "nome": "Português",
+      "carga_semanal": 4,
+      "tipo": "media",
+      "turmas": [
+        "6anoA",
+        "6anoB"
+      ],
+      "grupo": "#D35400",
+      "cor_fundo": "#FFFFFF",
+      "cor_fonte": "#FFFFFF"
+    },
+    {
+      "id": "0e1de6f0-7e93-41a7-8778-14990570d3c5",
+      "nome": "Matemática",
+      "carga_semanal": 4,
+      "tipo": "media",
+      "turmas": [
+        "6anoA",
+        "6anoB"
+      ],
+      "grupo": "#4A90E2",
+      "cor_fundo": "#FFFFFF",
+      "cor_fonte": "#FFFFFF"
+    },
+    {
+      "id": "8685e5f9-8ac6-46c0-ada3-a34f6b956f69",
+      "nome": "Ciências",
+      "carga_semanal": 3,
+      "tipo": "media",
+      "turmas": [
+        "6anoB",
+        "6anoA"
+      ],
+      "grupo": "#1ABC9C",
+      "cor_fundo": "#000000",
+      "cor_fonte": "#FFFFFF"
+    },
+    {
+      "id": "4c61d617-93d6-4c5f-96ae-f1446f0be02b",
+      "nome": "História",
+      "carga_semanal": 3,
+      "tipo": "media",
+      "turmas": [
+        "6anoB",
+        "6anoA"
+      ],
+      "grupo": "#C0392B",
+      "cor_fundo": "#FFFFFF",
+      "cor_fonte": "#FFFFFF"
+    },
+    {
+      "id": "2dda31f9-ee83-41dd-ac8e-5e6d838aca2d",
+      "nome": "Geografia",
+      "carga_semanal": 2,
+      "tipo": "media",
+      "turmas": [
+        "6",
+        "7",
+        "8"
+      ],
+      "grupo": "#F39C12",
+      "cor_fundo": "#000000",
+      "cor_fonte": "#FFFFFF"
+    },
+    {
+      "id": "c69e7a8b-4927-483d-8fef-5e7ebaadad70",
+      "nome": "Educação Física",
+      "carga_semanal": 2,
+      "tipo": "media",
+      "turmas": [
+        "6anoB",
+        "6anoA"
+      ],
+      "grupo": "#2ECC71",
+      "cor_fundo": "#000000",
+      "cor_fonte": "#FFFFFF"
+    },
+    {
+      "id": "53642fac-969f-477f-95e1-26dd3726eba1",
+      "nome": "Literatura",
+      "carga_semanal": 2,
+      "tipo": "media",
+      "turmas": [
+        "7",
+        "8"
+      ],
+      "grupo": "#9B59B6",
+      "cor_fundo": "#FFFFFF",
+      "cor_fonte": "#FFFFFF"
+    },
+    {
+      "id": "b6358078-35ab-40c3-b779-1fa0d3d44340",
+      "nome": "Biologia",
+      "carga_semanal": 3,
+      "tipo": "media",
+      "turmas": [
+        "8"
+      ],
+      "grupo": "#27AE60",
+      "cor_fundo": "#FFFFFF",
+      "cor_fonte": "#FFFFFF"
+    }
+  ],
+  "professores": [
+    {
+      "id": "a1076f8c-8628-4c95-a5ec-01cd2b2c97ed",
+      "nome": "João Silva",
+      "disciplinas": [
+        "Português",
+        "Literatura"
+      ],
+      "disponibilidade": true
+    },
+    {
+      "id": "71cacd1d-9491-4b10-a6ee-ad86b6dafc4e",
+      "nome": "Maria Santos",
+      "disciplinas": [
+        "Matemática"
+      ],
+      "disponibilidade": true
+    },
+    {
+      "id": "aa6cc510-a4bb-42f1-bdbf-6245fa0cd057",
+      "nome": "Carlos Oliveira",
+      "disciplinas": [
+        "Ciências",
+        "Biologia"
+      ],
+      "disponibilidade": true
+    },
+    {
+      "id": "644808a7-f2c6-49c8-af33-e8c43b308af8",
+      "nome": "Ana Costa",
+      "disciplinas": [
+        "História",
+        "Geografia"
+      ],
+      "disponibilidade": true
+    },
+    {
+      "id": "edf733d9-192b-4ab5-b14b-007669a0c108",
+      "nome": "Pedro Ferreira",
+      "disciplinas": [
+        "Educação Física"
+      ],
+      "disponibilidade": true
+    }
+  ],
+  "turmas": [
+    {
+      "id": "1d07701f-aaa2-4e2f-a0f0-d50ec7a76eb9",
+      "nome": "6anoA",
+      "serie": "6",
+      "turno": "matutino",
+      "grupo": "A",
+      "segmento": "EF_II"
+    },
+    {
+      "id": "d2ee8ba0-488a-4569-aaa2-38f369d1f521",
+      "nome": "6anoB",
+      "serie": "6",
+      "turno": "matutino",
+      "grupo": "A",
+      "segmento": "EF_II"
+    },
+    {
+      "id": "6d501358-74c5-427c-881c-01a83ed70c44",
+      "nome": "7anoA",
+      "serie": "7",
+      "turno": "matutino",
+      "grupo": "A",
+      "segmento": "EF_II"
+    },
+    {
+      "id": "73dd075f-f3b2-4371-8357-404c197d3c99",
+      "nome": "7anoB",
+      "serie": "7",
+      "turno": "matutino",
+      "grupo": "A",
+      "segmento": "EF_II"
+    },
+    {
+      "id": "d36b5711-16d8-4ada-b56f-8d002f910c57",
+      "nome": "8anoA",
+      "serie": "8",
+      "turno": "matutino",
+      "grupo": "A",
+      "segmento": "EF_II"
+    },
+    {
+      "id": "8da4d818-b732-4fdc-b80d-2df829b9d680",
+      "nome": "8anoB",
+      "serie": "8",
+      "turno": "matutino",
+      "grupo": "A",
+      "segmento": "EF_II"
+    }
+  ],
+  "salas": [
+    {
+      "id": "37f70ca8-b2f0-439a-b813-704fa1adb8b0",
+      "nome": "Sala 1",
+      "capacidade": 30,
+      "tipo": "normal"
+    },
+    {
+      "id": "cac2b865-8217-4d8e-913f-3e613c34c48b",
+      "nome": "Sala 2",
+      "capacidade": 30,
+      "tipo": "normal"
+    },
+    {
+      "id": "2305d8ce-5f85-4d9e-9cb8-686a064af313",
+      "nome": "Sala 3",
+      "capacidade": 30,
+      "tipo": "normal"
+    },
+    {
+      "id": "c5dbf049-556b-47ae-9ef3-43c197277525",
+      "nome": "Laboratório",
+      "capacidade": 25,
+      "tipo": "laboratorio"
+    },
+    {
+      "id": "cfa491eb-0be1-4743-80c3-7fe7fbca87b5",
+      "nome": "Auditório",
+      "capacidade": 60,
+      "tipo": "auditorio"
+    }
+  ]
+}

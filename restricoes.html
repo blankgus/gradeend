@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurar Restrições - Grade Horária</title>
+    <link rel="stylesheet" href="css/restricoes.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>⚙️ Configurar Restrições de Professores</h1>
+            <p>Configure de forma gráfica os horários disponíveis para cada professor</p>
+        </header>
+
+        <div class="main-layout">
+            <!-- PAINEL ESQUERDO: Seleção de Professor -->
+            <aside class="painel-esquerdo">
+                <h2>👨‍🏫 Professores</h2>
+                
+                <div class="filtro">
+                    <input type="text" id="filtroProf" placeholder="🔍 Buscar professor..." onkeyup="filtrarProfessores()">
+                </div>
+
+                <div class="lista-professores" id="listaProfessores">
+                    <!-- Carregado dinamicamente -->
+                </div>
+
+                <button class="botao-novo" onclick="novoProf()">➕ Novo Professor</button>
+            </aside>
+
+            <!-- PAINEL CENTRAL: Configuração de Horários -->
+            <main class="painel-central">
+                <div id="semProfessor" class="mensagem-vazia">
+                    <p>Selecione um professor para configurar suas restrições</p>
+                </div>
+
+                <div id="panelProf" class="panel-prof" style="display: none;">
+                    <!-- Informações do Professor -->
+                    <div class="info-professor">
+                        <div class="prof-header">
+                            <h3 id="nomeProfessor"></h3>
+                            <div class="prof-badges">
+                                <span id="disciplinaBadge" class="badge"></span>
+                                <span id="segmentoBadge" class="badge badge-info"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ABAS -->
+                    <div class="abas">
+                        <button class="aba-btn aba-ativa" onclick="mudarAba('disponibilidade')">
+                            📅 Disponibilidade
+                        </button>
+                        <button class="aba-btn" onclick="mudarAba('limites')">
+                            📊 Limites
+                        </button>
+                        <button class="aba-btn" onclick="mudarAba('preferencias')">
+                            ⭐ Preferências
+                        </button>
+                    </div>
+
+                    <!-- ABA 1: DISPONIBILIDADE (Grade de Horários) -->
+                    <div id="aba-disponibilidade" class="aba-content aba-ativa">
+                        <h3>Selecione os horários disponíveis</h3>
+                        <p class="hint">🖱️ Clique para marcar/desmarcar • Verde = Disponível • Vermelho = Indisponível</p>
+
+                        <div class="grade-horaria">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Horário</th>
+                                        <th>Seg</th>
+                                        <th>Ter</th>
+                                        <th>Qua</th>
+                                        <th>Qui</th>
+                                        <th>Sex</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="gradeHorarios">
+                                    <!-- Preenchido por JS -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="botoes-acao">
+                            <button class="botao-pequeno" onclick="marcarTodos()">✅ Marcar Todos</button>
+                            <button class="botao-pequeno" onclick="desmarcarTodos()">❌ Desmarcar Todos</button>
+                            <button class="botao-pequeno" onclick="inverter()">🔄 Inverter</button>
+                        </div>
+                    </div>
+
+                    <!-- ABA 2: LIMITES -->
+                    <div id="aba-limites" class="aba-content">
+                        <h3>Configurar Limites de Aulas</h3>
+
+                        <div class="config-item">
+                            <label>
+                                🔢 Máximo de aulas por dia
+                                <input type="number" id="maxAulasDia" min="1" max="10" value="4" class="input-number">
+                            </label>
+                        </div>
+
+                        <div class="config-item">
+                            <label>
+                                📈 Máximo de aulas por semana
+                                <input type="number" id="maxAulassemana" min="1" max="40" value="20" class="input-number">
+                            </label>
+                        </div>
+
+                        <div class="config-item">
+                            <label>
+                                ⏸️ Dias de folga por semana
+                                <input type="number" id="diasFolga" min="0" max="5" value="1" class="input-number">
+                            </label>
+                        </div>
+
+                        <div class="config-item">
+                            <label>
+                                🚫 Máximo de "janelas" (buracos) por dia
+                                <input type="number" id="maxJanelas" min="0" max="5" value="1" class="input-number">
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- ABA 3: PREFERÊNCIAS -->
+                    <div id="aba-preferencias" class="aba-content">
+                        <h3>Preferências e Observações</h3>
+
+                        <div class="config-item">
+                            <label>
+                                ⭐ Prefere iniciar aulas a partir de:
+                                <select id="horaInicial" class="input-select">
+                                    <option value="">-- Qualquer horário --</option>
+                                    <option value="07:00">07:00</option>
+                                    <option value="07:50">07:50</option>
+                                    <option value="08:40">08:40</option>
+                                    <option value="09:50">09:50</option>
+                                    <option value="10:40">10:40</option>
+                                </select>
+                            </label>
+                        </div>
+
+                        <div class="config-item">
+                            <label>
+                                ⭐ Prefere terminar aulas até:
+                                <select id="horaFinal" class="input-select">
+                                    <option value="">-- Qualquer horário --</option>
+                                    <option value="11:30">11:30</option>
+                                    <option value="12:20">12:20</option>
+                                    <option value="13:10">13:10</option>
+                                </select>
+                            </label>
+                        </div>
+
+                        <div class="config-item">
+                            <label>
+                                📌 Aulas geminadas (consecutivas)
+                                <select id="aulasGeminadas" class="input-select">
+                                    <option value="nao-especificado">Não especificado</option>
+                                    <option value="nao-geminar">Não geminar</option>
+                                    <option value="max-2">Máximo 2 aulas</option>
+                                    <option value="max-3">Máximo 3 aulas</option>
+                                    <option value="qualquer">Qualquer quantidade</option>
+                                </select>
+                            </label>
+                        </div>
+
+                        <div class="config-item">
+                            <label>
+                                💬 Observações
+                                <textarea id="observacoes" placeholder="Ex: Reunião de pais toda terça-feira..." rows="4"></textarea>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- PAINEL DIREITO: Resumo e Ações -->
+            <aside class="painel-direito">
+                <h2>📋 Resumo</h2>
+
+                <div class="resumo-item">
+                    <span class="resumo-label">Horários disponíveis:</span>
+                    <span id="resumoDisp" class="resumo-valor">--</span>
+                </div>
+
+                <div class="resumo-item">
+                    <span class="resumo-label">Dias com restrição:</span>
+                    <span id="resumoDias" class="resumo-valor">--</span>
+                </div>
+
+                <div class="resumo-item">
+                    <span class="resumo-label">Máx. aulas/dia:</span>
+                    <span id="resumoMax" class="resumo-valor">--</span>
+                </div>
+
+                <div id="alertasRestridades" class="alertas">
+                    <!-- Preenchido por JS -->
+                </div>
+
+                <div class="botoes-salvar">
+                    <button class="botao-primary" onclick="salvarRestricoes()">💾 Salvar</button>
+                    <button class="botao-secondary" onclick="cancelar()">❌ Cancelar</button>
+                </div>
+
+                <div id="statusSalvamento"></div>
+            </aside>
+        </div>
+    </div>
+
+    <script src="js/restricoes.js"></script>
+</body>
+</html>
+				
